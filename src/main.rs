@@ -40,11 +40,11 @@ fn gaussian_pyramid(img: DynamicImage, iterations: u32) -> Vec<DynamicImage> {
 
     pyramid.push(img);
 
-    for _ in 0..iterations {
+    (0..iterations).for_each(|_|{
         let processed = gaussian(current);
         current = processed;
         pyramid.push(current.clone())
-    }
+    });
 
     pyramid
 }
